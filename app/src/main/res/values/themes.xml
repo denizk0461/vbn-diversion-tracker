@@ -27,33 +27,33 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
 
-        <!-- light-themed line colours -->
-        <item name="color_line_themed_green_light">@color/line_light_green_light</item>
-        <item name="color_line_themed_green_dark">@color/line_light_green_dark</item>
-        <item name="color_line_themed_turqoise">@color/line_light_turqoise</item>
-        <item name="color_line_themed_blue_light">@color/line_light_blue_light</item>
+        <!-- light-themed line colors -->
         <item name="color_line_themed_blue">@color/line_light_blue</item>
         <item name="color_line_themed_blue_dark">@color/line_light_blue_dark</item>
-        <item name="color_line_themed_yellow">@color/line_light_yellow</item>
-        <item name="color_line_themed_red">@color/line_light_red</item>
+        <item name="color_line_themed_blue_light">@color/line_light_blue_light</item>
+        <item name="color_line_themed_green_dark">@color/line_light_green_dark</item>
+        <item name="color_line_themed_green_light">@color/line_light_green_light</item>
         <item name="color_line_themed_lavender">@color/line_light_lavender</item>
         <item name="color_line_themed_orange">@color/line_light_orange</item>
-        <item name="color_line_themed_violet">@color/line_light_violet</item>
         <item name="color_line_themed_pink">@color/line_light_pink</item>
+        <item name="color_line_themed_red">@color/line_light_red</item>
+        <item name="color_line_themed_turquoise">@color/line_light_turquoise</item>
+        <item name="color_line_themed_violet">@color/line_light_violet</item>
+        <item name="color_line_themed_yellow">@color/line_light_yellow</item>
 
-        <!-- line colours as they appear on the BSAG website; these don't change across themes -->
-        <item name="color_line_web_green_light">@color/line_web_green_light</item>
-        <item name="color_line_web_green_dark">@color/line_web_green_dark</item>
-        <item name="color_line_web_turqoise">@color/line_web_turqoise</item>
-        <item name="color_line_web_blue_light">@color/line_web_blue_light</item>
+        <!-- line colors as they appear on the BSAG website; these don't change across themes -->
         <item name="color_line_web_blue">@color/line_web_blue</item>
         <item name="color_line_web_blue_dark">@color/line_web_blue_dark</item>
-        <item name="color_line_web_yellow">@color/line_web_yellow</item>
-        <item name="color_line_web_red">@color/line_web_red</item>
+        <item name="color_line_web_blue_light">@color/line_web_blue_light</item>
+        <item name="color_line_web_green_dark">@color/line_web_green_dark</item>
+        <item name="color_line_web_green_light">@color/line_web_green_light</item>
         <item name="color_line_web_lavender">@color/line_web_lavender</item>
         <item name="color_line_web_orange">@color/line_web_orange</item>
-        <item name="color_line_web_violet">@color/line_web_violet</item>
         <item name="color_line_web_pink">@color/line_web_pink</item>
+        <item name="color_line_web_red">@color/line_web_red</item>
+        <item name="color_line_web_turquoise">@color/line_web_turquoise</item>
+        <item name="color_line_web_violet">@color/line_web_violet</item>
+        <item name="color_line_web_yellow">@color/line_web_yellow</item>
     </style>
 
     <style name="Theme.BSAG" parent="Base.Theme.BSAG" />

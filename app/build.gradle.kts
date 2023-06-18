@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.denizk0461.bsag"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.denizk0461.bsag"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "0.0.1"
 
@@ -47,6 +47,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

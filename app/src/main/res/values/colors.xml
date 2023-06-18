@@ -62,23 +62,7 @@
     <color name="md_theme_dark_outlineVariant">#534341</color>
     <color name="md_theme_dark_scrim">#000000</color>
 
-    <!-- BSAG line colours -->
-    <!-- 8, 20, 29, 31, 52, 65, 66, 80, N7 -->
-    <color name="line_web_green_light">#95c11f</color>
-    <color name="line_light_green_light">#4d6700</color>
-    <color name="line_dark_green_light">#a8d636</color>
-    <!-- 1, 25, 62, 81, 98, N1 -->
-    <color name="line_web_green_dark">#009640</color>
-    <color name="line_light_green_dark">#006e2d</color>
-    <color name="line_dark_green_dark">#66de7e</color>
-    <!-- 5 -->
-    <color name="line_web_turqoise">#009db1</color>
-    <color name="line_light_turqoise">#006876</color>
-    <color name="line_dark_turqoise">#51d7ee</color>
-    <!-- 3, 21, 61, 91, 92, N6, N10 -->
-    <color name="line_web_blue_light">#009fe3</color>
-    <color name="line_light_blue_light">#006491</color>
-    <color name="line_dark_blue_light">#8aceff</color>
+    <!-- BSAG line colors -->
     <!-- 2 -->
     <color name="line_web_blue">#005ca9</color>
     <color name="line_light_blue">#0a5fac</color>
@@ -87,14 +71,18 @@
     <color name="line_web_blue_dark">#312783</color>
     <color name="line_light_blue_dark">#5a52ae</color>
     <color name="line_dark_blue_dark">#c5c0ff</color>
-    <!-- 6, 28, 33, 34, 38, 39, 42, 55, 93, N9 -->
-    <color name="line_web_yellow">#ffcc00</color>
-    <color name="line_light_yellow">#745b00</color>
-    <color name="line_dark_yellow">#f1c100</color>
-    <!-- 4, 26, 40, 41, 94, N4 -->
-    <color name="line_web_red">#e30613</color>
-    <color name="line_light_red">#c0000c</color>
-    <color name="line_dark_red">#ffb4aa</color>
+    <!-- 3, 21, 61, 91, 92, N6, N10 -->
+    <color name="line_web_blue_light">#009fe3</color>
+    <color name="line_light_blue_light">#006491</color>
+    <color name="line_dark_blue_light">#8aceff</color>
+    <!-- 1, 25, 62, 81, 98, N1 -->
+    <color name="line_web_green_dark">#009640</color>
+    <color name="line_light_green_dark">#006e2d</color>
+    <color name="line_dark_green_dark">#66de7e</color>
+    <!-- 8, 20, 29, 31, 52, 65, 66, 80, N7 -->
+    <color name="line_web_green_light">#95c11f</color>
+    <color name="line_light_green_light">#4d6700</color>
+    <color name="line_dark_green_light">#a8d636</color>
     <!-- 22, N94 -->
     <color name="line_web_lavender">#a69dcd</color>
     <color name="line_light_lavender">#6152a6</color>
@@ -103,13 +91,24 @@
     <color name="line_web_orange">#ef7d00</color>
     <color name="line_light_orange">#934b00</color>
     <color name="line_dark_orange">#ffb782</color>
-    <!-- 24, 37, 96 -->
-    <color name="line_web_violet">#951b81</color>
-    <color name="line_light_violet">#a2298d</color>
-    <color name="line_dark_violet">#ffade6</color>
     <!-- N3 -->
     <color name="line_web_pink">#e6007e</color>
     <color name="line_light_pink">#b90064</color>
     <color name="line_dark_pink">#ffb0c9</color>
-
+    <!-- 4, 26, 40, 41, 94, N4 -->
+    <color name="line_web_red">#e30613</color>
+    <color name="line_light_red">#c0000c</color>
+    <color name="line_dark_red">#ffb4aa</color>
+    <!-- 5 -->
+    <color name="line_web_turquoise">#009db1</color>
+    <color name="line_light_turquoise">#006876</color>
+    <color name="line_dark_turquoise">#51d7ee</color>
+    <!-- 24, 37, 96 -->
+    <color name="line_web_violet">#951b81</color>
+    <color name="line_light_violet">#a2298d</color>
+    <color name="line_dark_violet">#ffade6</color>
+    <!-- 6, 28, 33, 34, 38, 39, 42, 55, 93, N9 -->
+    <color name="line_web_yellow">#ffcc00</color>
+    <color name="line_light_yellow">#745b00</color>
+    <color name="line_dark_yellow">#f1c100</color>
 </resources>

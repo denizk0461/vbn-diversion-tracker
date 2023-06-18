@@ -27,18 +27,18 @@
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
 
-        <!-- dark-themed line colours -->
-        <item name="color_line_themed_green_light">@color/line_dark_green_light</item>
-        <item name="color_line_themed_green_dark">@color/line_dark_green_dark</item>
-        <item name="color_line_themed_turqoise">@color/line_dark_turqoise</item>
-        <item name="color_line_themed_blue_light">@color/line_dark_blue_light</item>
+        <!-- dark-themed line colors -->
         <item name="color_line_themed_blue">@color/line_dark_blue</item>
         <item name="color_line_themed_blue_dark">@color/line_dark_blue_dark</item>
-        <item name="color_line_themed_yellow">@color/line_dark_yellow</item>
-        <item name="color_line_themed_red">@color/line_dark_red</item>
+        <item name="color_line_themed_blue_light">@color/line_dark_blue_light</item>
+        <item name="color_line_themed_green_dark">@color/line_dark_green_dark</item>
+        <item name="color_line_themed_green_light">@color/line_dark_green_light</item>
         <item name="color_line_themed_lavender">@color/line_dark_lavender</item>
         <item name="color_line_themed_orange">@color/line_dark_orange</item>
-        <item name="color_line_themed_violet">@color/line_dark_violet</item>
         <item name="color_line_themed_pink">@color/line_dark_pink</item>
+        <item name="color_line_themed_red">@color/line_dark_red</item>
+        <item name="color_line_themed_turquoise">@color/line_dark_turquoise</item>
+        <item name="color_line_themed_violet">@color/line_dark_violet</item>
+        <item name="color_line_themed_yellow">@color/line_dark_yellow</item>
     </style>
 </resources>
