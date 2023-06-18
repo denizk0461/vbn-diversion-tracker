@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/overview_fragment">
+    app:startDestination="@id/line_diversion_fragment">
 
     <fragment
-        android:id="@+id/overview_fragment"
-        android:name="com.denizk0461.bsag.fragment.OverviewFragment"
+        android:id="@+id/line_diversion_fragment"
+        android:name="com.denizk0461.bsag.fragment.LineDiversionFragment"
         android:label="OverviewFragment"/>
 </navigation>

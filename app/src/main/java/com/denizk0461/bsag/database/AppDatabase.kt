@@ -1,4 +1,4 @@
-package com.denizk0461.bsag.db
+package com.denizk0461.bsag.database
 
 import android.content.Context
 import androidx.room.Database
@@ -15,6 +15,7 @@ import com.denizk0461.bsag.model.Line
     autoMigrations = [
     ],
 )
+//@TypeConverters(EnumConverters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     /**
@@ -45,6 +46,7 @@ abstract class AppDatabase : RoomDatabase() {
                             AppDatabase::class.java,
                             "bsag_db",
                         )
+                        .createFromAsset("database/lines.db")
                         .build()
                 }
             }

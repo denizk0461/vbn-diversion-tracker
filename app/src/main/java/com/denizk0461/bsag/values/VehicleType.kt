@@ -3,7 +3,7 @@ package com.denizk0461.bsag.values
 /**
  * This class stores representations for vehicles that are used on certain lines.
  */
-enum class LineType {
+enum class VehicleType {
 
     // A medium-demand service run with bus vehicles.
     BUS,
