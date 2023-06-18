@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.room:room-runtime:2.5.1")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    implementation("androidx.core:core-ktx:1.10.1")
 
     kapt("androidx.room:room-compiler:2.5.1")
 
