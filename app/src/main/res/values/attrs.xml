@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="color_line_web_green_light"/>
+    <attr format="color" name="color_line_themed_green_light"/>
+    <attr format="color" name="color_line_web_green_dark"/>
+    <attr format="color" name="color_line_themed_green_dark"/>
+    <attr format="color" name="color_line_web_turqoise"/>
+    <attr format="color" name="color_line_themed_turqoise"/>
+    <attr format="color" name="color_line_web_blue_light"/>
+    <attr format="color" name="color_line_themed_blue_light"/>
+    <attr format="color" name="color_line_web_blue"/>
+    <attr format="color" name="color_line_themed_blue"/>
+    <attr format="color" name="color_line_web_blue_dark"/>
+    <attr format="color" name="color_line_themed_blue_dark"/>
+    <attr format="color" name="color_line_web_yellow"/>
+    <attr format="color" name="color_line_themed_yellow"/>
+    <attr format="color" name="color_line_web_red"/>
+    <attr format="color" name="color_line_themed_red"/>
+    <attr format="color" name="color_line_web_lavender"/>
+    <attr format="color" name="color_line_themed_lavender"/>
+    <attr format="color" name="color_line_web_orange"/>
+    <attr format="color" name="color_line_themed_orange"/>
+    <attr format="color" name="color_line_web_violet"/>
+    <attr format="color" name="color_line_themed_violet"/>
+    <attr format="color" name="color_line_web_pink"/>
+    <attr format="color" name="color_line_themed_pink"/>
+</resources>
