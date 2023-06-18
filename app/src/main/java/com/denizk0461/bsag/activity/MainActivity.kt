@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set up navigation graph
         binding.fragmentContainer.getFragment<NavHostFragment>().setupNavigationGraph()
     }
 

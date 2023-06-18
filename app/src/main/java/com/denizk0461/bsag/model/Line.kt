@@ -1,5 +1,7 @@
 package com.denizk0461.bsag.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.denizk0461.bsag.values.LineColor
 import com.denizk0461.bsag.values.LineType
 
@@ -11,8 +13,11 @@ import com.denizk0461.bsag.values.LineType
  * @param type  type of vehicle used on this line
  * @param color color the line will have as a background
  */
+@Entity(
+    tableName = "bsag_line",
+)
 data class Line(
-    val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     val name: String,
     val type: LineType,
     val color: LineColor,

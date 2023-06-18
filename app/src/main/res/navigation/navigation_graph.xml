@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/navigation_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/overview_fragment">
 
+    <fragment
+        android:id="@+id/overview_fragment"
+        android:name="com.denizk0461.bsag.fragment.OverviewFragment"
+        android:label="OverviewFragment"/>
 </navigation>
