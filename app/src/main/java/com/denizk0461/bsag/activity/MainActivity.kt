@@ -1,7 +1,8 @@
-package com.denizk0461.bsag
+package com.denizk0461.bsag.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.denizk0461.bsag.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
