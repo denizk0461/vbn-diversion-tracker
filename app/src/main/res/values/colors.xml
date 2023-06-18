@@ -62,6 +62,9 @@
     <color name="md_theme_dark_outlineVariant">#534341</color>
     <color name="md_theme_dark_scrim">#000000</color>
 
+<!--    <color name="black">#212121</color>-->
+<!--    <color name="white">#ffffff</color>-->
+
     <!-- BSAG line colors -->
     <!-- 2 -->
     <color name="line_web_blue">#005ca9</color>

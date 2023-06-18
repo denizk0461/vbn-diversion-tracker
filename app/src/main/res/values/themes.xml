@@ -27,6 +27,11 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
 
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:textColorHighlight">@color/md_theme_light_primaryContainer</item>
+        <item name="android:scrollbarThumbVertical">@color/md_theme_light_primary</item> <!-- md_theme_light_onSurfaceVariant -->
+        <item name="colorOutlineVariant">@color/md_theme_light_outlineVariant</item>
+
         <!-- light-themed line colors -->
         <item name="color_line_themed_blue">@color/line_light_blue</item>
         <item name="color_line_themed_blue_dark">@color/line_light_blue_dark</item>
@@ -41,7 +46,7 @@
         <item name="color_line_themed_violet">@color/line_light_violet</item>
         <item name="color_line_themed_yellow">@color/line_light_yellow</item>
 
-        <!-- line colors as they appear on the BSAG website; these don't change across themes -->
+        <!-- line colors as they appear on the BSAG website; these don't differ across themes -->
         <item name="color_line_web_blue">@color/line_web_blue</item>
         <item name="color_line_web_blue_dark">@color/line_web_blue_dark</item>
         <item name="color_line_web_blue_light">@color/line_web_blue_light</item>

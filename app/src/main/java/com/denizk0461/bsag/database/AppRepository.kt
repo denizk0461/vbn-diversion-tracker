@@ -1,7 +1,9 @@
-package com.denizk0461.bsag.db
+package com.denizk0461.bsag.database
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
+import com.denizk0461.bsag.model.Line
 
 class AppRepository(application: Application) {
 
@@ -33,4 +35,6 @@ class AppRepository(application: Application) {
             return staticRepositoryInstance
         }
     }
+
+    fun getAllLines(): LiveData<List<Line>> = dao.getAllLines()
 }

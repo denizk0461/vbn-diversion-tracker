@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a19caa191f17b6410527bfe8d2a07d13",
+    "identityHash": "95eac7ad85edfa8b949e5fffbc8b3bfb",
     "entities": [
       {
         "tableName": "bsag_lines",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `type` TEXT NOT NULL, `color` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `vehicleType` TEXT NOT NULL, `operationTime` TEXT NOT NULL, `color` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -21,8 +21,14 @@
             "notNull": true
           },
           {
-            "fieldPath": "type",
-            "columnName": "type",
+            "fieldPath": "vehicleType",
+            "columnName": "vehicleType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "operationTime",
+            "columnName": "operationTime",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -46,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a19caa191f17b6410527bfe8d2a07d13')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '95eac7ad85edfa8b949e5fffbc8b3bfb')"
     ]
   }
 }
