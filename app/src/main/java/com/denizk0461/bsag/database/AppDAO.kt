@@ -8,6 +8,6 @@ import com.denizk0461.bsag.model.Line
 @Dao
 interface AppDAO {
 
-    @Query("SELECT * FROM bsag_lines")
+    @Query("SELECT * FROM lines")
     fun getAllLines(): LiveData<List<Line>>
 }

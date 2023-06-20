@@ -4,18 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.denizk0461.bsag.model.Announcement
 import com.denizk0461.bsag.model.Line
+import com.denizk0461.bsag.util.Converters
 
 @Database(
     entities = [
         Line::class,
+        Announcement::class,
     ],
     version = 1,
     exportSchema = true,
     autoMigrations = [
     ],
 )
-//@TypeConverters(EnumConverters::class)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     /**

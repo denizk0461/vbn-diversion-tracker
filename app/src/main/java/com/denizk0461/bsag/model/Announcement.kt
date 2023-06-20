@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
  * @param content   text content for this announcement
  */
 @Entity(
-    tableName = "bsag_announcement",
+    tableName = "announcement",
 )
 data class Announcement(
     @PrimaryKey(autoGenerate = true) val id: Int,
