@@ -9,4 +9,6 @@ class LineDiversionViewModel(application: Application) : AppViewModel(applicatio
 
     fun getLines(): LiveData<List<Line>> = repository.getLines()
     fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>> = repository.getLinesWithDiversions()
+
+    fun fetch() { doAsync { repository.fetch() } }
 }

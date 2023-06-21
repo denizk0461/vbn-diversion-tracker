@@ -36,6 +36,8 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>() {
         viewModel.getLinesWithDiversions().observe(viewLifecycleOwner) { lines ->
             lineDiversionAdapter.setNewData(lines)
         }
+
+        viewModel.fetch()
 //        lineDiversionAdapter.setNewData(listOf(
 //            Line(0, "1", LineType.TRAM, LineColor.GREEN_DARK),
 //            Line(1, "4", LineType.TRAM, LineColor.RED),

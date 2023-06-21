@@ -18,6 +18,7 @@ class AppRepository(application: Application) {
     private val webFetcher = WebFetcher()
 
     companion object {
+
         /**
          * Reference to the app's repository. It is only instantiated once because it can only be
          * accessed by [getRepositoryInstance].
@@ -38,6 +39,11 @@ class AppRepository(application: Application) {
             }
             return staticRepositoryInstance
         }
+    }
+
+    fun fetch() {
+        dao.nukeDiversions()
+        dao.insert(webFetcher.fetch())
     }
 
     fun getLines(): LiveData<List<Line>> = dao.getLines()

@@ -16,9 +16,10 @@ import com.denizk0461.bsag.util.Converters
         Diversion::class,
         Announcement::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
     autoMigrations = [
+//        AutoMigration(1, 2),
     ],
 )
 @TypeConverters(Converters::class)
@@ -53,6 +54,7 @@ abstract class AppDatabase : RoomDatabase() {
                             "bsag_db",
                         )
                         .createFromAsset("database/lines.db")
+                        .fallbackToDestructiveMigration() // TODO this is probably not a good idea
                         .build()
                 }
             }

@@ -3,6 +3,7 @@ package com.denizk0461.bsag.database
 import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.values.Constants
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.net.URL
 
 /**
@@ -26,6 +27,10 @@ class WebFetcher {
             }
         }
 
-        return Gson().fromJson<List<Diversion>>(result, List::class.java)
+        // Necessary to convert from JSON to typed array objects
+        val typeToken = object : TypeToken<List<Diversion>>() {}.type
+
+        // Return typed array
+        return Gson().fromJson(result, typeToken)
     }
 }
