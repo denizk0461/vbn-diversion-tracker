@@ -33,7 +33,7 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>() {
             layoutManager = LinearLayoutManager(context)
         }
 
-        viewModel.getAllLines().observe(viewLifecycleOwner) { lines ->
+        viewModel.getLinesWithDiversions().observe(viewLifecycleOwner) { lines ->
             lineDiversionAdapter.setNewData(lines)
         }
 //        lineDiversionAdapter.setNewData(listOf(

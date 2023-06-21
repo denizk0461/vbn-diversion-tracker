@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.denizk0461.bsag.databinding.ItemLineDiversionBinding
 import com.denizk0461.bsag.model.Line
+import com.denizk0461.bsag.model.LineWithDiversions
 import com.denizk0461.bsag.util.AppDiffUtilCallback
 import com.denizk0461.bsag.util.getConstrast
 import com.denizk0461.bsag.util.getThemedColor
@@ -15,7 +16,7 @@ class LineDiversionAdapter(
 //    private val onClickListener: OnClickListener,
 ) : RecyclerView.Adapter<LineDiversionAdapter.LineDiversionViewHolder>() {
 
-    private val items: MutableList<Line> = mutableListOf()
+    private val items: MutableList<LineWithDiversions> = mutableListOf()
 
     class LineDiversionViewHolder(val binding: ItemLineDiversionBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -36,13 +37,21 @@ class LineDiversionAdapter(
 
         val context = holder.binding.root.context
 
-        val backgroundColor = context.theme.getThemedColor(item.color.webColor)
+        val backgroundColor = context.theme.getThemedColor(item.line.color.webColor)
+        val contrast = backgroundColor.getConstrast()
 
 //        holder.binding.linearLayout.setBackgroundColor(backgroundColor)
         holder.binding.cardBackground.backgroundTintList = ColorStateList.valueOf(backgroundColor)
 
-        holder.binding.text.text = "${item.name} (${item.vehicleType.name})"
-        holder.binding.text.setTextColor(backgroundColor.getConstrast())
+        holder.binding.text.apply {
+            text = "${item.line.name} (${item.line.vehicleType.name})"
+            setTextColor(contrast)
+        }
+
+        holder.binding.testDiversions.apply {
+            text = item.diversions.joinToString(",")
+            setTextColor(contrast)
+        }
     }
 
     /**
@@ -51,7 +60,7 @@ class LineDiversionAdapter(
      *
      * @param newItems   new dataset to be displayed
      */
-    fun setNewData(newItems: List<Line>) {
+    fun setNewData(newItems: List<LineWithDiversions>) {
         // Calculate the difference between the old list and the new list
         val diffResult = DiffUtil.calculateDiff(AppDiffUtilCallback(items, newItems))
 

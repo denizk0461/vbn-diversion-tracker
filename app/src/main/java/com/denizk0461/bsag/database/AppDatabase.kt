@@ -6,12 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.denizk0461.bsag.model.Announcement
+import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.util.Converters
 
 @Database(
     entities = [
         Line::class,
+        Diversion::class,
         Announcement::class,
     ],
     version = 1,

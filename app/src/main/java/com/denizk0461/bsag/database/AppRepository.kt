@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
 import com.denizk0461.bsag.model.Line
+import com.denizk0461.bsag.model.LineWithDiversions
 
 class AppRepository(application: Application) {
 
@@ -12,6 +13,9 @@ class AppRepository(application: Application) {
 
     // Shared preferences used to store small values
     private val prefs = PreferenceManager.getDefaultSharedPreferences(application)
+
+    // Fetcher object for web contents
+    private val webFetcher = WebFetcher()
 
     companion object {
         /**
@@ -36,5 +40,11 @@ class AppRepository(application: Application) {
         }
     }
 
-    fun getAllLines(): LiveData<List<Line>> = dao.getAllLines()
+    fun getLines(): LiveData<List<Line>> = dao.getLines()
+
+    fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>> = dao.getLinesWithDiversions()
+
+//    fun refreshDiversions() {
+//        dao.updateDiversions(webFetcher.fetch())
+//    }
 }

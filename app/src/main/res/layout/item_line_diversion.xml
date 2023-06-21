@@ -31,6 +31,11 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/meta_normal"/>
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/test_diversions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </com.google.android.material.card.MaterialCardView>

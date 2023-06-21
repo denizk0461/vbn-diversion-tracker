@@ -3,8 +3,10 @@ package com.denizk0461.bsag.viewmodel
 import android.app.Application
 import androidx.lifecycle.LiveData
 import com.denizk0461.bsag.model.Line
+import com.denizk0461.bsag.model.LineWithDiversions
 
 class LineDiversionViewModel(application: Application) : AppViewModel(application) {
 
-    fun getAllLines(): LiveData<List<Line>> = repository.getAllLines()
+    fun getLines(): LiveData<List<Line>> = repository.getLines()
+    fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>> = repository.getLinesWithDiversions()
 }
