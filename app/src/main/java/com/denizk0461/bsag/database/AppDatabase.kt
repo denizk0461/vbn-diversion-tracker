@@ -16,7 +16,7 @@ import com.denizk0461.bsag.util.Converters
         Diversion::class,
         Announcement::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true,
     autoMigrations = [
 //        AutoMigration(1, 2),
@@ -31,6 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun dao(): AppDAO
 
     companion object {
+
         // The singular instance of this database
         private var instance: AppDatabase? = null
 

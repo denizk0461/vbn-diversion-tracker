@@ -3,6 +3,7 @@ package com.denizk0461.bsag.database
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
+import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.model.LineWithDiversions
 
@@ -17,6 +18,7 @@ class AppRepository(application: Application) {
     // Fetcher object for web contents
     private val webFetcher = WebFetcher()
 
+    // Static context for maintaining a singleton instance of the repository
     companion object {
 
         /**
@@ -41,9 +43,34 @@ class AppRepository(application: Application) {
         }
     }
 
+    /**
+     * Retrieves the diversion data from the web and stores it in the database. Preserves which
+     * diversions the user has already read.
+     */
     fun fetch() {
+
+        // Fetch new data
+        val fetchedData = webFetcher.fetch()
+
+        // Retrieve the already stored data to get the read statuses of the elements therein
+        val storedData = dao.getDiversions()
+
+        // Iterate through all objects in the newly retrieved data
+        for (index in fetchedData.indices) {
+
+            // Check if this diversion has already been downloaded before
+            storedData.find { stored -> fetchedData[index].matches(stored) }?.let { storedElement ->
+
+                // Preserve the read status of the diversion
+                fetchedData[index].read = storedElement.read
+            }
+        }
+
+        // Delete all previous entries
         dao.nukeDiversions()
-        dao.insert(webFetcher.fetch())
+
+        // Store the new data
+        dao.insert(fetchedData)
     }
 
     fun getLines(): LiveData<List<Line>> = dao.getLines()

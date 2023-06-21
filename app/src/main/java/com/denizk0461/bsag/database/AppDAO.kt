@@ -15,6 +15,9 @@ interface AppDAO {
     @Query("SELECT * FROM lines")
     fun getLines(): LiveData<List<Line>>
 
+    @Query("SELECT * FROM diversions")
+    fun getDiversions(): List<Diversion>
+
     @Transaction
     @Query("SELECT * FROM lines")
     fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>>
