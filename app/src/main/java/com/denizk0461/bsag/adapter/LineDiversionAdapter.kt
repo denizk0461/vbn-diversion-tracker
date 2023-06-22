@@ -1,7 +1,6 @@
 package com.denizk0461.bsag.adapter
 
 import android.content.res.ColorStateList
-import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +21,7 @@ class LineDiversionAdapter(
 ) : RecyclerView.Adapter<LineDiversionAdapter.LineDiversionViewHolder>() {
 
     private val items: MutableList<LineWithDiversions> = mutableListOf()
+    private var expandedPosition = -1
 
     class LineDiversionViewHolder(val binding: ItemLineBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -49,15 +49,28 @@ class LineDiversionAdapter(
         var readCounter = 0
         var unreadCounter = 0
 
-        holder.binding.containerDiversions.visibility = View.GONE
+        if (expandedPosition != -1) {
+            holder.binding.expandableContainer.visibility = if (expandedPosition == position) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        } else {
+            holder.binding.expandableContainer.visibility = View.GONE
+        }
 
         holder.binding.cardBackground.also { card ->
             card.backgroundTintList = ColorStateList.valueOf(backgroundColor)
             card.setOnClickListener {
 
-//                onClickListener.onLineClick(item.line)
+//                val previousExpandedPosition = expandedPosition
+//                expandedPosition = position
+//                notifyItemChanged(previousExpandedPosition)
 
-                holder.binding.containerDiversions.also { container ->
+//                onClickListener.onLineClick(item.line)
+//                TransitionManager.beginDelayedTransition(holder.binding.root.parent as ViewGroup)
+
+                holder.binding.expandableContainer.also { container ->
                     when (container.visibility) {
                         View.VISIBLE -> {
                             holder.binding.imageArrowExpand.setImageResource(R.drawable.arrow_expand)
@@ -71,7 +84,6 @@ class LineDiversionAdapter(
 //                    TransitionManager.beginDelayedTransition(holder.binding.root)
 
                     // Hides elements at the bottom of the list
-                    TransitionManager.beginDelayedTransition(holder.binding.root.parent as ViewGroup)
                 }
             }
         }
@@ -85,6 +97,8 @@ class LineDiversionAdapter(
         }
 
         // clear diversion container
+        holder.binding.containerDiversions.removeAllViews()
+
         item.diversions.forEach { diversion ->
 
             // Inflate the view binding for the diversion

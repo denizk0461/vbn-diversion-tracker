@@ -16,6 +16,8 @@ enum class SettingsPreferences(val key: String) {
      * 0: web colors
      * 1: app-themed colors
      * 2: greyscale
+     *
+     * See [com.denizk0461.bsag.values.preferences.ColorThemePreference]
      */
     COLOR_THEME("colortheme517483")
 

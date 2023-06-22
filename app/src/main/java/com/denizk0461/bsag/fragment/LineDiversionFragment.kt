@@ -11,6 +11,7 @@ import com.denizk0461.bsag.adapter.LineDiversionAdapter
 import com.denizk0461.bsag.databinding.FragmentOverviewBinding
 import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.model.Line
+import com.denizk0461.bsag.util.setRainbowProgressCircle
 import com.denizk0461.bsag.viewmodel.LineDiversionViewModel
 
 class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
@@ -37,16 +38,23 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
             layoutManager = LinearLayoutManager(context)
         }
 
+//        (binding.recyclerViewContainer as ViewGroup).layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+
         viewModel.getLinesWithDiversions().observe(viewLifecycleOwner) { lines ->
             lineDiversionAdapter.setNewData(lines)
-            binding.recyclerView.scheduleLayoutAnimation()
         }
 
-        viewModel.fetch() // TODO in swiperefreshlayout
+        binding.swipeRefreshLayout.setRainbowProgressCircle()
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.fetch {
+                binding.swipeRefreshLayout.isRefreshing = false
+            }
+        }
+
     }
 
     override fun onLineClick(line: Line) {
-//        binding.recyclerView.scheduleLayoutAnimation()
+//        TransitionManager.beginDelayedTransition(binding.recyclerView)
     }
 
     override fun onDiversionClick(diversion: Diversion) {

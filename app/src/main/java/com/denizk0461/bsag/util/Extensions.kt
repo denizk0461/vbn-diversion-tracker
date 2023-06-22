@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.util.TypedValue
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.denizk0461.bsag.R
 
 /**
  * Retrieves a specified colour customised to the currently applied theme.
@@ -32,3 +34,16 @@ fun Int.getConstrast(): Int = Color.parseColor(if ((
 } else {
     "#ffffff"
 })
+
+/**
+ * Applies a rainbow colour effect to a progress circle of a given [SwipeRefreshLayout]. The circle
+ * will rotate through 4 different colours during the refresh process.
+ */
+fun SwipeRefreshLayout.setRainbowProgressCircle() {
+    setColorSchemeColors(
+        context.getColor(R.color.swipe_red),
+        context.getColor(R.color.swipe_blue),
+        context.getColor(R.color.swipe_green),
+        context.getColor(R.color.swipe_yellow),
+    )
+}

@@ -65,6 +65,11 @@
 <!--    <color name="black">#212121</color>-->
 <!--    <color name="white">#ffffff</color>-->
 
+    <color name="swipe_red">#a83730</color>
+    <color name="swipe_blue">#4b54b8</color>
+    <color name="swipe_green">#1d6c30</color>
+    <color name="swipe_yellow">#dbc84e</color>
+
     <!-- BSAG line colors -->
     <!-- 2 -->
     <color name="line_web_blue">#005ca9</color>

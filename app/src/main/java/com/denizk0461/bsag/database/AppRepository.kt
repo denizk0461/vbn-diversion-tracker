@@ -1,10 +1,13 @@
 package com.denizk0461.bsag.database
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.model.LineWithDiversions
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class AppRepository(application: Application) {
 
@@ -46,7 +49,8 @@ class AppRepository(application: Application) {
      * Retrieves the diversion data from the web and stores it in the database. Preserves which
      * diversions the user has already read.
      */
-    fun fetch() {
+    suspend fun fetch(onFinish: () -> Unit) {
+        Log.d("asd", "asdfg")
 
         // Fetch new data
         val fetchedData = webFetcher.fetch()
@@ -54,22 +58,31 @@ class AppRepository(application: Application) {
         // Retrieve the already stored data to get the read statuses of the elements therein
         val storedData = dao.getDiversions()
 
-        // Iterate through all objects in the newly retrieved data
-        for (index in fetchedData.indices) {
+        // Check if any diversions are already stored in the database
+        if (storedData.isNotEmpty()) {
 
-            // Check if this diversion has already been downloaded before
-            storedData.find { stored -> fetchedData[index].matches(stored) }?.let { storedElement ->
+            // Iterate through all objects in the newly retrieved data
+            for (index in fetchedData.indices) {
 
-                // Preserve the read status of the diversion
-                fetchedData[index].read = storedElement.read
+                // Check if this diversion has already been downloaded before
+                storedData.find { stored -> fetchedData[index].matches(stored) }
+                    ?.let { storedElement ->
+
+                        // Preserve the read status of the diversion
+                        fetchedData[index].read = storedElement.read
+                    }
             }
-        }
 
-        // Delete all previous entries
-        dao.nukeDiversions()
+            // Delete all previous entries
+            dao.nukeDiversions()
+        }
 
         // Store the new data
         dao.insert(fetchedData)
+
+        withContext(Dispatchers.Main) {
+            onFinish()
+        }
     }
 
     fun getLines(): LiveData<List<Line>> = dao.getLines()
