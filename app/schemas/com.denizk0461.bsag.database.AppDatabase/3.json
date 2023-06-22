@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "fa247ae31d735c0e92dea2a4caebd868",
+    "identityHash": "31e39b9d89a912db5318ffc1999d884f",
     "entities": [
       {
         "tableName": "lines",
@@ -50,7 +50,7 @@
       },
       {
         "tableName": "diversions",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `lineId` INTEGER NOT NULL, `diversion` TEXT NOT NULL, `read` INTEGER NOT NULL, FOREIGN KEY(`lineId`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `lineId` INTEGER NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `start` TEXT NOT NULL, `end` TEXT NOT NULL, `read` INTEGER NOT NULL, FOREIGN KEY(`lineId`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -65,8 +65,26 @@
             "notNull": true
           },
           {
-            "fieldPath": "diversion",
-            "columnName": "diversion",
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "start",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "end",
+            "columnName": "end",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -128,7 +146,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fa247ae31d735c0e92dea2a4caebd868')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '31e39b9d89a912db5318ffc1999d884f')"
     ]
   }
 }
