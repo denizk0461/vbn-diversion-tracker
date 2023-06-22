@@ -1,13 +1,15 @@
 package com.denizk0461.bsag.database
 
 import android.app.Application
-import android.util.Log
+import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
+import com.denizk0461.bsag.exception.LinesNotDownloadedException
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.model.LineWithDiversions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlin.jvm.Throws
 
 class AppRepository(application: Application) {
 
@@ -48,9 +50,20 @@ class AppRepository(application: Application) {
     /**
      * Retrieves the diversion data from the web and stores it in the database. Preserves which
      * diversions the user has already read.
+     *
+     * @throws LinesNotDownloadedException  if there is an error with attaching diversions to lines
      */
+    @Throws(LinesNotDownloadedException::class)
     suspend fun fetch(onFinish: () -> Unit) {
-        Log.d("asd", "asdfg")
+
+        // Check if any lines are stored
+        if (dao.getLineCount() == 0) {
+            /*
+             * If there aren't any lines stored, throw a certain exception telling the user that
+             * they must download lines before they can download diversions
+             */
+            throw LinesNotDownloadedException(certain = true)
+        }
 
         // Fetch new data
         val fetchedData = webFetcher.fetch()
@@ -77,8 +90,13 @@ class AppRepository(application: Application) {
             dao.nukeDiversions()
         }
 
-        // Store the new data
-        dao.insert(fetchedData)
+        try {
+            // Store the new data
+            dao.insert(fetchedData)
+        } catch (e: SQLiteConstraintException) {
+            // If diversions cannot be assigned to lines, throw an uncertain exception
+            throw LinesNotDownloadedException(certain = false)
+        }
 
         withContext(Dispatchers.Main) {
             onFinish()

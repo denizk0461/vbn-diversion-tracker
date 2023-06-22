@@ -15,6 +15,9 @@ interface AppDAO {
     @Query("SELECT * FROM lines")
     fun getLines(): LiveData<List<Line>>
 
+    @Query("SELECT COUNT(*) FROM lines")
+    fun getLineCount(): Int
+
     @Query("SELECT * FROM diversions")
     fun getDiversions(): List<Diversion>
 
