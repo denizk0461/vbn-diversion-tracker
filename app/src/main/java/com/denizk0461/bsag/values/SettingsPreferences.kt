@@ -8,9 +8,16 @@ package com.denizk0461.bsag.values
  */
 enum class SettingsPreferences(val key: String) {
     // - boolean preferences - //
-    USE_THEMED_COLORS("themedcolors517483")
 
     // - int preferences - //
+
+    /**
+     * Which color theme to use. Possible values:
+     * 0: web colors
+     * 1: app-themed colors
+     * 2: greyscale
+     */
+    COLOR_THEME("colortheme517483")
 
     // - string preferences - //
 

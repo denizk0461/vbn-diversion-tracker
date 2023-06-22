@@ -1,6 +1,7 @@
 package com.denizk0461.bsag.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,14 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denizk0461.bsag.adapter.LineDiversionAdapter
 import com.denizk0461.bsag.databinding.FragmentOverviewBinding
+import com.denizk0461.bsag.model.Diversion
+import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.viewmodel.LineDiversionViewModel
 
-class LineDiversionFragment : AppFragment<FragmentOverviewBinding>() {
+class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
+    LineDiversionAdapter.OnClickListener {
 
-    private val lineDiversionAdapter = LineDiversionAdapter()
+    private val lineDiversionAdapter = LineDiversionAdapter(this)
 
     private val viewModel: LineDiversionViewModel by viewModels()
 
@@ -35,13 +39,17 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>() {
 
         viewModel.getLinesWithDiversions().observe(viewLifecycleOwner) { lines ->
             lineDiversionAdapter.setNewData(lines)
+            binding.recyclerView.scheduleLayoutAnimation()
         }
 
-        viewModel.fetch()
-//        lineDiversionAdapter.setNewData(listOf(
-//            Line(0, "1", LineType.TRAM, LineColor.GREEN_DARK),
-//            Line(1, "4", LineType.TRAM, LineColor.RED),
-//            Line(2, "57", LineType.BUS, LineColor.ORANGE),
-//        ))
+        viewModel.fetch() // TODO in swiperefreshlayout
+    }
+
+    override fun onLineClick(line: Line) {
+//        binding.recyclerView.scheduleLayoutAnimation()
+    }
+
+    override fun onDiversionClick(diversion: Diversion) {
+        Log.d("asdf", "yo wtf! this is ${diversion.title} you're messin with!")
     }
 }

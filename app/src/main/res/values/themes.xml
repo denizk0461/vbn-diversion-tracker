@@ -62,4 +62,8 @@
     </style>
 
     <style name="Theme.BSAG" parent="Base.Theme.BSAG" />
+
+    <style name="DividerTheme" parent="Widget.Material3.MaterialDivider">
+        <item name="dividerColor">@color/md_theme_light_outlineVariant</item>
+    </style>
 </resources>

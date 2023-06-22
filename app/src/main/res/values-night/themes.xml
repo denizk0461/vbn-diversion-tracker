@@ -60,4 +60,8 @@
         <item name="color_line_web_violet">@color/line_web_violet</item>
         <item name="color_line_web_yellow">@color/line_web_yellow</item>
     </style>
+
+    <style name="DividerTheme" parent="Widget.Material3.MaterialDivider">
+        <item name="dividerColor">@color/md_theme_dark_outlineVariant</item>
+    </style>
 </resources>
