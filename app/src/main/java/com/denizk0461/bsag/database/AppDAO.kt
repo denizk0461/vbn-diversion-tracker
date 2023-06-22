@@ -25,7 +25,6 @@ interface AppDAO {
     @Insert
     fun insert(diversions: List<Diversion>)
 
-    // TODO this cannot be left here like this, because diversions need an unread counter
     @Query("DELETE FROM diversions")
     fun nukeDiversions()
 }

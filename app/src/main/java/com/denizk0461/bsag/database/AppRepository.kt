@@ -3,7 +3,6 @@ package com.denizk0461.bsag.database
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
-import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.model.LineWithDiversions
 
@@ -76,8 +75,4 @@ class AppRepository(application: Application) {
     fun getLines(): LiveData<List<Line>> = dao.getLines()
 
     fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>> = dao.getLinesWithDiversions()
-
-//    fun refreshDiversions() {
-//        dao.updateDiversions(webFetcher.fetch())
-//    }
 }
