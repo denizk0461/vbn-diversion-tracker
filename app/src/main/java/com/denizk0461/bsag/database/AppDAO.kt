@@ -2,6 +2,7 @@ package com.denizk0461.bsag.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
@@ -25,8 +26,11 @@ interface AppDAO {
     @Query("SELECT * FROM lines")
     fun getLinesWithDiversions(): LiveData<List<LineWithDiversions>>
 
+    @Insert
+    fun insertLines(lines: List<Line>)
+
     @Upsert
-    fun insert(diversions: List<Diversion>)
+    fun upsertDiversions(diversions: List<Diversion>)
 
     @Query("DELETE FROM diversions WHERE id IN (:ids)")
     fun deleteDiversionsById(ids: List<Int>)
@@ -37,6 +41,6 @@ interface AppDAO {
     @Transaction
     fun refreshDiversions(idsToDelete: List<Int>, diversions: List<Diversion>) {
         deleteDiversionsById(idsToDelete)
-        insert(diversions)
+        upsertDiversions(diversions)
     }
 }

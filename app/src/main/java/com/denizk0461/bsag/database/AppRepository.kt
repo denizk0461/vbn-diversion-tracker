@@ -48,7 +48,7 @@ class AppRepository(application: Application) {
     }
 
     suspend fun fetchLines() {
-
+        dao.insertLines(webFetcher.fetchLines())
     }
 
     /**
@@ -70,7 +70,7 @@ class AppRepository(application: Application) {
         }
 
         // Fetch new data
-        val fetchedData = webFetcher.fetch()
+        val fetchedData = webFetcher.fetchDiversions()
 
         // Retrieve the already stored data to get the read statuses of the elements therein
         val storedData = dao.getDiversions()

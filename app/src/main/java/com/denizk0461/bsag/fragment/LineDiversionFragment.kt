@@ -47,12 +47,13 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
 
         binding.swipeRefreshLayout.setRainbowProgressCircle()
         binding.swipeRefreshLayout.setOnRefreshListener {
-            viewModel.fetchDiversions(context, onFinish = {
-                binding.swipeRefreshLayout.isRefreshing = false
-            }, onError = { message ->
-                binding.swipeRefreshLayout.isRefreshing = false
-                context.theme.showErrorSnackBar(binding.rootCoordinatorLayout, message)
-            })
+//            viewModel.fetchDiversions(context, onFinish = {
+//                binding.swipeRefreshLayout.isRefreshing = false
+//            }, onError = { message ->
+//                binding.swipeRefreshLayout.isRefreshing = false
+//                context.theme.showErrorSnackBar(binding.rootCoordinatorLayout, message)
+//            })
+            viewModel.fetchLines()
         }
 
     }
