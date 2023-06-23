@@ -12,7 +12,7 @@ import androidx.room.Relation
 data class LineWithDiversions(
     @Embedded val line: Line,
     @Relation(
-        parentColumn = "id",
+        parentColumn = "lineId",
         entityColumn = "lineId",
     )
     val diversions: List<Diversion>,

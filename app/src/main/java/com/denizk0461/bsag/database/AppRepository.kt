@@ -47,6 +47,10 @@ class AppRepository(application: Application) {
         }
     }
 
+    suspend fun fetchLines() {
+
+    }
+
     /**
      * Retrieves the diversion data from the web and stores it in the database. Preserves which
      * diversions the user has already read.
@@ -54,7 +58,7 @@ class AppRepository(application: Application) {
      * @throws LinesNotDownloadedException  if there is an error with attaching diversions to lines
      */
     @Throws(LinesNotDownloadedException::class)
-    suspend fun fetch(onFinish: () -> Unit) {
+    suspend fun fetchDiversions(onFinish: () -> Unit) {
 
         // Check if any lines are stored
         if (dao.getLineCount() == 0) {
@@ -85,14 +89,20 @@ class AppRepository(application: Application) {
                         fetchedData[index].read = storedElement.read
                     }
             }
+        }
 
-            // Delete all previous entries
-            dao.nukeDiversions()
+        /*
+         * Find IDs of items that need to be deleted.
+         * IDs that are contained in the locally stored set, but are not in the downloaded set, must
+         * be deleted.
+         */
+        val idsToDelete = storedData.map { it.id }.filterNot { id ->
+            id in fetchedData.map { it.id }
         }
 
         try {
-            // Store the new data
-            dao.insert(fetchedData)
+            // Refresh the diversion data
+            dao.refreshDiversions(idsToDelete, fetchedData)
         } catch (e: SQLiteConstraintException) {
             // If diversions cannot be assigned to lines, throw an uncertain exception
             throw LinesNotDownloadedException(certain = false)

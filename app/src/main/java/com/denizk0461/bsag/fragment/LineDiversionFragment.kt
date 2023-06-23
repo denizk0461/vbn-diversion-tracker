@@ -12,6 +12,7 @@ import com.denizk0461.bsag.databinding.FragmentOverviewBinding
 import com.denizk0461.bsag.model.Diversion
 import com.denizk0461.bsag.model.Line
 import com.denizk0461.bsag.util.setRainbowProgressCircle
+import com.denizk0461.bsag.util.showErrorSnackBar
 import com.denizk0461.bsag.viewmodel.LineDiversionViewModel
 
 class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
@@ -46,9 +47,12 @@ class LineDiversionFragment : AppFragment<FragmentOverviewBinding>(),
 
         binding.swipeRefreshLayout.setRainbowProgressCircle()
         binding.swipeRefreshLayout.setOnRefreshListener {
-            viewModel.fetch {
+            viewModel.fetchDiversions(context, onFinish = {
                 binding.swipeRefreshLayout.isRefreshing = false
-            }
+            }, onError = { message ->
+                binding.swipeRefreshLayout.isRefreshing = false
+                context.theme.showErrorSnackBar(binding.rootCoordinatorLayout, message)
+            })
         }
 
     }
