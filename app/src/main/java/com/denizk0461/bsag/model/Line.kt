@@ -2,9 +2,10 @@ package com.denizk0461.bsag.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.denizk0461.bsag.values.LineColor
-import com.denizk0461.bsag.values.OperationTime
-import com.denizk0461.bsag.values.VehicleType
+import com.denizk0461.bsag.values.lines.Area
+import com.denizk0461.bsag.values.lines.LineColor
+import com.denizk0461.bsag.values.lines.OperationTime
+import com.denizk0461.bsag.values.lines.VehicleType
 
 /**
  * Representation of a tram or bus line.
@@ -23,6 +24,8 @@ data class Line(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val lineId: Int,
     val name: String,
+    val route: String,
+    val area: List<Area>, // TODO how do I implement this?
     val vehicleType: VehicleType,
     val operationTime: OperationTime,
     val color: LineColor,

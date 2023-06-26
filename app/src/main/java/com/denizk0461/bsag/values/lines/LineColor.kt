@@ -1,4 +1,4 @@
-package com.denizk0461.bsag.values
+package com.denizk0461.bsag.values.lines
 
 import androidx.annotation.AttrRes
 import com.denizk0461.bsag.R
